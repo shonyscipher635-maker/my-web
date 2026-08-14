@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextLevel Store Uganda - Tech, Power & Electronics</title>
+  <style>
+    /* Global Reset & Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0f1117;
+      color: #e1e7ef;
+      padding-bottom: 60px;
+    }
+
+    /* Header Navbar */
+    header {
+      background-color: #161b22;
+      border-bottom: 1px solid #30363d;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ff9900; /* Orange accent */
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #ff9900;
+    }
+
+    .logo span {
+      color: #00d2ff;
+    }
+
+    .search-bar {
+      width: 45%;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #30363d;
+      border-radius: 6px 0 0 6px;
+      background: #0d1117;
+      color: #fff;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 24px;
+      background-color: #ff9900;
+      border: none;
+      border-radius: 0 6px 6px 0;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      width: 90%;
+      max-width: 1200px;
+      margin: 25px auto;
+      background: linear-gradient(rgba(15, 17, 23, 0.75), rgba(15, 17, 23, 0.85)), url('Z.jpg') center/cover no-repeat;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 50px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-text p {
+      color: #c9d1d9;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #ff9900;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.2s ease;
+    }
+
+    .hero-btn:hover {
+      background: #e68a00;
+    }
+
+    /* Main Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin: 35px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 4px solid #ff9900;
+      padding-left: 10px;
+    }
+
+    .section-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      border-color: #484f58;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff9900;
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .badge.blue {
+      background-color: #00d2ff;
+    }
+
+    .badge.green {
+      background-color: #2ea44f;
+      color: #fff;
+    }
+
+    .img-container {
+      width: 100%;
+      height: 230px;
+      background-color: #0d1117;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .img-container img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f0f6fc;
+      line-height: 1.3;
+      height: 2.6em;
+      overflow: hidden;
+    }
+
+    .product-price {
+      margin-top: auto;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .current-price {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #58a6ff;
+    }
+
+    .old-price {
+      font-size: 0.85rem;
+      color: #8b949e;
+      text-decoration: line-through;
+    }
+
+    .add-to-cart-btn {
+      margin-top: 12px;
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid #ff9900;
+      color: #ff9900;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #ff9900;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="logo">
+      <img src="A.jpg" alt="Logo Icon" class="logo-img">
+      NEXT<span>LEVEL</span>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search tech, security, solar & engineering services...">
+      <button>
+        <img src="E.jpg" alt="Search Icon" class="btn-icon"> Search
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div class="hero-text">
+      <h1>Next-Gen Tech & Power Deals</h1>
+      <p>Premium electronics, solar backup systems, CCTV installation, and electrical engineering across Uganda.</p>
+      <a href="#featured" class="hero-btn">
+        <img src="N.jpg" alt="Deal Icon" class="btn-icon"> Shop Local Offers
+      </a>
+    </div>
+  </div>
+
+  <div class="container" id="featured">
+    
+    <!-- SECTION 1: GAMING & ENTERTAINMENT -->
+    <h2 class="section-title">
+      <img src="I.jpg" alt="Gaming Category" class="section-icon">
+      Gaming & Entertainment
+    </h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge">HOT</span>
+        <div class="img-container">
+          <img src="i.jpg" alt="PlayStation 5 Console">
+        </div>
+        <div class="product-info">
+          <div class="product-title">PlayStation 5 Next-Gen Console Edition</div>
+          <div class="product-price">
+            <span class="current-price">UGX 1,850,000</span>
+            <span class="old-price">UGX 2,000,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="I.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge blue">NEW</span>
+        <div class="img-container">
+          <img src="Y.jpg" alt="PlayStation 5 Bundle">
+        </div>
+        <div class="product-info">
+          <div class="product-title">PlayStation 5 DualSense Controller Bundle</div>
+          <div class="product-price">
+            <span class="current-price">UGX 2,150,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge blue">LATTEST</span>
+        <div class="img-container">
+          <img src="S.jpg" alt="PS4 Controllers Tri-Pack">
+        </div>
+        <div class="product-info">
+          <div class="product-title">PS4 Wireless Dual Controllers Trio Pack</div>
+          <div class="product-price">
+            <span class="current-price">UGX 440,000</span>
+            <span class="old-price">UGX 520,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge blue">RGB</span>
+        <div class="img-container">
+          <img src="A.jpg" alt="Pro RGB Gaming Keyboard Desk Setup">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Ultra RGB Mechanical Desk Gaming Keyboard</div>
+          <div class="product-price">
+            <span class="current-price">UGX 290,000</span>
+            <span class="old-price">UGX 360,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="H.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="5.jpg" alt="RGB Gaming Keyboard">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Pro RGB Mechanical Gaming Keyboard</div>
+          <div class="product-price">
+            <span class="current-price">UGX 290,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="K.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="I.jpg" alt="Xperia Gaming Handheld">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Xperia Cyber-Grip Gaming Handheld</div>
+          <div class="product-price">
+            <span class="current-price">UGX 920,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- SECTION 2: SMART HOME & COOLING -->
+    <h2 class="section-title">
+      <img src="J.jpg" alt="Home Category" class="section-icon">
+      Home Appliances & Displays
+    </h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge green">SMART APPLIANCE</span>
+        <div class="img-container">
+          <img src="F.jpg" alt="Futuristic Smart Split Air Conditioner">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Mirror-Finish Cyber-Series Inverter Air Conditioner</div>
+          <div class="product-price">
+            <span class="current-price">UGX 2,350,000</span>
+            <span class="old-price">UGX 2,600,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge green">BESTSELLER</span>
+        <div class="img-container">
+          <img src="rt.jpg" alt="Ultra Wide OLED Smart TV Setup">
+        </div>
+        <div class="product-info">
+          <div class="product-title">85" Ultra-Wide Cinema OLED TV Setup</div>
+          <div class="product-price">
+            <span class="current-price">UGX 7,000,000</span>
+            <span class="old-price">UGX 8,100,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="H.jpg" alt="Holographic Television">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Cyber-HUD Holographic Smartwatch</div>
+          <div class="product-price">
+            <span class="current-price">UGX 730,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="6.jpg" alt="Cyberpunk Smart Watch Display">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Neon Pulse Ambient Smart Fitness Watch</div>
+          <div class="product-price">
+            <span class="current-price">UGX 550,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="T.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">LIMITED</span>
+        <div class="img-container">
+          <img src="R.jpg" alt="Kintsugi Sphere Pendant Tech Pendant">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Tattoom Gold-Fracture Obsidian Tech Pendant</div>
+          <div class="product-price">
+            <span class="current-price">UGX 1,100,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- SECTION 3: SOLAR, POWER & ELECTRICAL ENGINEERING -->
+    <h2 class="section-title">
+      <img src="Z.jpg" alt="Power Category" class="section-icon">
+      Solar Backup Systems & Power Grid
+    </h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge green">SOLAR SYSTEM</span>
+        <div class="img-container">
+          <img src="Z.jpg" alt="Residential Solar Battery & Inverter System">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Hybrid Solar Inverter & Smart Battery Storage Unit</div>
+          <div class="product-price">
+            <span class="current-price">UGX 12,500,000</span>
+            <span class="old-price">UGX 14,000,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge green">SOLAR</span>
+        <div class="img-container">
+          <img src="U.jpg" alt="Solar Panel Rooftop Installation">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Industrial Rooftop Solar Array Installation System</div>
+          <div class="product-price">
+            <span class="current-price">UGX 9,200,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">ENGINEERING</span>
+        <div class="img-container">
+          <img src="3.jpg" alt="Industrial Electrical Control Panel Technician">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Industrial Electrical Control Panel & Maintenance Service</div>
+          <div class="product-price">
+            <span class="current-price">UGX 1,500,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">POWER LINES</span>
+        <div class="img-container">
+          <img src="C.jpg" alt="Power Line Grid & Utility Maintenance">
+        </div>
+        <div class="product-info">
+          <div class="product-title">High-Voltage Utility Pole & Wiring Field Service</div>
+          <div class="product-price">
+            <span class="current-price">UGX 2,200,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">ESSENTIAL</span>
+        <div class="img-container">
+          <img src="D.jpg" alt="APC Uninterruptible Power Supply">
+        </div>
+        <div class="product-info">
+          <div class="product-title">APC Back-UPS Pro Battery Backup Unit</div>
+          <div class="product-price">
+            <span class="current-price">UGX 590,000</span>
+            <span class="old-price">UGX 690,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- SECTION 4: SECURITY & NETWORK INFRASTRUCTURE -->
+    <h2 class="section-title">
+      <img src="V.jpg" alt="Security Category" class="section-icon">
+      CCTV Security & Network Cables
+    </h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge green">EXPERT SERVICE</span>
+        <div class="img-container">
+          <img src="W.jpg" alt="Hikvision Giant Dome CCTV Installation Project">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Hikvision Enterprise CCTV Installation & Maintenance Service</div>
+          <div class="product-price">
+            <span class="current-price">UGX 2,500,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="V.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge green">SERVICE</span>
+        <div class="img-container">
+          <img src="V.jpg" alt="Hikvision CCTV Installation">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Hikvision Pro Dome Camera & Setup</div>
+          <div class="product-price">
+            <span class="current-price">UGX 1,650,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge blue">NEW</span>
+        <div class="img-container">
+          <img src="W.jpg" alt="Prama Smart Outdoor Security Camera">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Prama Night-Vision Outdoor Surveillance Camera</div>
+          <div class="product-price">
+            <span class="current-price">UGX 810,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="X.jpg" alt="Outdoor HDTV Antenna Unit">
+        </div>
+        <div class="product-info">
+          <div class="product-title">High-Gain Multi-Element Directional TV Antenna</div>
+          <div class="product-price">
+            <span class="current-price">UGX 250,000</span>
+            <span class="old-price">UGX 320,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">-15%</span>
+        <div class="img-container">
+          <img src="T.jpg" alt="Fiber Optic Ethernet Cables">
+        </div>
+        <div class="product-info">
+          <div class="product-title">High-Speed Fiber Optic RJ45 Network Cable Set</div>
+          <div class="product-price">
+            <span class="current-price">UGX 130,000</span>
+            <span class="old-price">UGX 160,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="N.jpg" alt="Neon Multi-Plug Power Station">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Neon Fast-Charging Multi-Plug Extension Dock</div>
+          <div class="product-price">
+            <span class="current-price">UGX 170,000</span>
+            <span class="old-price">UGX 210,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="M.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="img-container">
+          <img src="6.jpg" alt="Server Rack System">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Enterprise Server Cabinet Infrastructure</div>
+          <div class="product-price">
+            <span class="current-price">UGX 10,700,000</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <img src="1.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
+          </button>
+        </div>
+      </div> 
+    </div>
+</body>
+</html>

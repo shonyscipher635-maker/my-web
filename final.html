@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NextLevel Store Uganda - Tech, Power & Electronics</title>
-  
-  <!-- EmailJS SDK for Email Delivery -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
   <style>
     /* Global Reset & Styling */
     * {
@@ -41,7 +37,7 @@
     .logo {
       font-size: 1.6rem;
       font-weight: 800;
-      color: #ff9900; /* Orange accent */
+      color: #ff9900;
       letter-spacing: 1px;
       display: flex;
       align-items: center;
@@ -138,7 +134,7 @@
       background: #e68a00;
     }
 
-    /* Main Container */
+    /* Container */
     .container {
       width: 90%;
       max-width: 1200px;
@@ -200,14 +196,8 @@
       z-index: 2;
     }
 
-    .badge.blue {
-      background-color: #00d2ff;
-    }
-
-    .badge.green {
-      background-color: #2ea44f;
-      color: #fff;
-    }
+    .badge.blue { background-color: #00d2ff; }
+    .badge.green { background-color: #2ea44f; color: #fff; }
 
     .img-container {
       width: 100%;
@@ -388,7 +378,7 @@
       color: #c9d1d9;
     }
 
-    /* Media Queries for Responsiveness */
+    /* Media Queries for Mobile Responsiveness */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -457,8 +447,8 @@
         <div class="product-info">
           <div class="product-title">PlayStation 5 Next-Gen Console Edition</div>
           <div class="product-price">
-            <span class="current-price">UGX 1,850,000</span>
-            <span class="old-price">UGX 2,000,000</span>
+            <span class="current-price">UGX 850,000</span>
+            <span class="old-price">UGX 1000,000</span>
           </div>
           <button class="add-to-cart-btn" onclick="openOrderModal('PlayStation 5 Next-Gen Console Edition', 'UGX 1,850,000')">
             <img src="I.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
@@ -474,7 +464,7 @@
         <div class="product-info">
           <div class="product-title">PlayStation 5 DualSense Controller Bundle</div>
           <div class="product-price">
-            <span class="current-price">UGX 2,150,000</span>
+            <span class="current-price">UGX 850,000</span>
           </div>
           <button class="add-to-cart-btn" onclick="openOrderModal('PlayStation 5 DualSense Controller Bundle', 'UGX 2,150,000')">
             <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
@@ -518,49 +508,6 @@
 
     </div>
 
-    <!-- SECTION 2: SMART HOME & COOLING -->
-    <h2 class="section-title">
-      <img src="J.jpg" alt="Home Category" class="section-icon">
-      Home Appliances & Displays
-    </h2>
-    <div class="product-grid">
-
-      <div class="product-card">
-        <span class="badge green">SMART APPLIANCE</span>
-        <div class="img-container">
-          <img src="F.jpg" alt="Futuristic Smart Split Air Conditioner">
-        </div>
-        <div class="product-info">
-          <div class="product-title">Mirror-Finish Cyber-Series Inverter Air Conditioner</div>
-          <div class="product-price">
-            <span class="current-price">UGX 2,350,000</span>
-            <span class="old-price">UGX 2,600,000</span>
-          </div>
-          <button class="add-to-cart-btn" onclick="openOrderModal('Mirror-Finish Cyber-Series Inverter Air Conditioner', 'UGX 2,350,000')">
-            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
-          </button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <span class="badge green">BESTSELLER</span>
-        <div class="img-container">
-          <img src="rt.jpg" alt="Ultra Wide OLED Smart TV Setup">
-        </div>
-        <div class="product-info">
-          <div class="product-title">85&quot; Ultra-Wide Cinema OLED TV Setup</div>
-          <div class="product-price">
-            <span class="current-price">UGX 7,000,000</span>
-            <span class="old-price">UGX 8,100,000</span>
-          </div>
-          <button class="add-to-cart-btn" onclick="openOrderModal('85 Cinema OLED TV Setup', 'UGX 7,000,000')">
-            <img src="S.jpg" alt="Cart Icon" class="btn-icon"> Add To Cart
-          </button>
-        </div>
-      </div>
-
-    </div>
-
     <!-- RESPONSIVE CONTACT US SECTION -->
     <div class="contact-section" id="contact">
       <h2 style="color:#ff9900; margin-bottom:20px;">Get In Touch</h2>
@@ -568,26 +515,28 @@
         <div class="contact-info">
           <h3>Contact Details</h3>
           <p><strong>Location:</strong> Kampala, Uganda</p>
-          <p><strong>Phone:</strong> +256 700 000 000</p>
+          <p><strong>Phone:</strong> +256 7083939683/0758726552/0753597852</p>
           <p><strong>Email:</strong> support@nextlevelstore.ug</p>
           <p><strong>Working Hours:</strong> Mon - Sat: 8:00 AM - 6:00 PM</p>
         </div>
+
         <div class="contact-form">
           <h3>Send Us a Message</h3>
-          <form id="contactForm">
+          <!-- Formspree Contact Form -->
+          <form id="contactForm" action="https://formspree.io/f/mkjwbqer" method="POST">
             <div class="form-group">
               <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" required placeholder="Your Name">
+              <input type="text" id="contact-name" name="name" required placeholder="Your Name" value="John Doe Test">
             </div>
             <div class="form-group">
               <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" required placeholder="Your Email">
+              <input type="email" id="contact-email" name="email" required placeholder="Your Email" value="johndoe@example.com">
             </div>
             <div class="form-group">
               <label for="contact-message">Message</label>
-              <textarea id="contact-message" rows="4" required placeholder="Your Message..."></textarea>
+              <textarea id="contact-message" name="message" rows="4" required placeholder="Your Message...">Hello! I am just testing the contact form functionality via Formspree. Please confirm if this is received.</textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn" id="contact-submit">Send Message</button>
           </form>
         </div>
       </div>
@@ -600,47 +549,49 @@
     <div class="modal-content">
       <span class="close-modal" onclick="closeOrderModal()">&times;</span>
       <h2>Checkout Order</h2>
-      <form id="orderForm">
+      
+      <!-- Formspree Order Form -->
+      <form id="orderForm" action="https://formspree.io/f/mkjwbqer" method="POST">
+        
+        <!-- Hidden inputs to record what product was ordered -->
+        <input type="hidden" id="type-field" name="_subject" value="New Product Order Received">
+        
         <div class="form-group">
           <label>Product</label>
-          <input type="text" id="modal-product" readonly>
+          <input type="text" id="modal-product" name="Product Name" readonly>
         </div>
         <div class="form-group">
           <label>Price</label>
-          <input type="text" id="modal-price" readonly>
+          <input type="text" id="modal-price" name="Price" readonly>
         </div>
         <div class="form-group">
           <label for="cust-name">Your Full Name</label>
-          <input type="text" id="cust-name" required placeholder="e.g. John Doe">
+          <input type="text" id="cust-name" name="Customer Name" required placeholder="e.g. John Doe" value="Jane Smith Test">
         </div>
         <div class="form-group">
           <label for="cust-email">Your Email Address</label>
-          <input type="email" id="cust-email" required placeholder="e.g. john@example.com">
+          <input type="email" id="cust-email" name="Customer Email" required placeholder="e.g. john@example.com" value="janesmith@example.com">
         </div>
         <div class="form-group">
           <label for="cust-phone">Phone Number</label>
-          <input type="tel" id="cust-phone" required placeholder="e.g. +256 7...">
+          <input type="tel" id="cust-phone" name="Phone Number" required placeholder="e.g. +256 7..." value="+256 772 123 456">
         </div>
         <div class="form-group">
           <label for="cust-address">Delivery Address</label>
-          <textarea id="cust-address" rows="2" required placeholder="e.g. Plot 12, Kampala"></textarea>
+          <textarea id="cust-address" name="Delivery Address" rows="2" required placeholder="e.g. Plot 12, Kampala">Plot 45, Kampala Road, Kampala, Uganda (Test Address)</textarea>
         </div>
-        <button type="submit" class="submit-btn">Confirm & Send Order</button>
+        <button type="submit" class="submit-btn" id="order-submit">Confirm & Send Order</button>
       </form>
     </div>
+  </div>
+  <div>
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // 1. Initialize EmailJS
-    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS Public Key
-    (function() {
-        emailjs.init("service_saxmaus");
-    })();
-
-    // 2. Order Modal Logic
     const modal = document.getElementById("orderModal");
 
+    // Modal Control Functions
     function openOrderModal(productName, price) {
       document.getElementById("modal-product").value = productName;
       document.getElementById("modal-price").value = price;
@@ -651,56 +602,75 @@
       modal.style.display = "none";
     }
 
-    // Close modal if user clicks outside of modal container
     window.onclick = function(event) {
       if (event.target == modal) {
         closeOrderModal();
       }
     }
 
-    // 3. Handle Order Form Submission via EmailJS
-    document.getElementById("orderForm").addEventListener("submit", function(e) {
+    // Smooth AJAX Submission with JavaScript for Order Form
+    document.getElementById("orderForm").addEventListener("submit", async function(e) {
       e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById("order-submit");
+      
+      btn.innerText = "Sending Order...";
+      btn.disabled = true;
 
-      const templateParams = {
-        product_name: document.getElementById("modal-product").value,
-        product_price: document.getElementById("modal-price").value,
-        customer_name: document.getElementById("cust-name").value,
-        customer_email: document.getElementById("cust-email").value,
-        customer_phone: document.getElementById("cust-phone").value,
-        customer_address: document.getElementById("cust-address").value
-      };
-
-      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS details
-      emailjs.send('service_saxmaus', 'service_saxmaus', templateParams)
-        .then(function(response) {
-            alert('Order sent successfully! We will contact you shortly.');
-            closeOrderModal();
-            document.getElementById("orderForm").reset();
-        }, function(error) {
-            alert('Failed to send order. Please try again or contact us directly.');
-            console.error('EmailJS Error:', error);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: {
+              'Accept': 'application/json'
+          }
         });
+        
+        if (response.ok) {
+          alert("Order placed successfully! We will contact you soon.");
+          form.reset();
+          closeOrderModal();
+        } else {
+          alert("Error placing order. Please check your form ID or try again.");
+        }
+      } catch (error) {
+        alert("Network error. Please try again later.");
+      } finally {
+        btn.innerText = "Confirm & Send Order";
+        btn.disabled = false;
+      }
     });
 
-    // 4. Handle Contact Form Submission
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    // Smooth AJAX Submission with JavaScript for Contact Form
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
       e.preventDefault();
-      
-      const contactParams = {
-        customer_name: document.getElementById("contact-name").value,
-        customer_email: document.getElementById("contact-email").value,
-        message: document.getElementById("contact-message").value
-      };
+      const form = e.target;
+      const btn = document.getElementById("contact-submit");
 
-      // Use your EmailJS Service & Template details here
-      emailjs.send('service_saxmaus', 'service_saxmaus', contactParams)
-        .then(function(response) {
-            alert('Thank you for your message! We will get back to you soon.');
-            document.getElementById("contactForm").reset();
-        }, function(error) {
-            alert('Failed to send message. Please try again.');
+      btn.innerText = "Sending Message...";
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: {
+              'Accept': 'application/json'
+          }
         });
+
+        if (response.ok) {
+          alert("Thank you! Your message has been sent.");
+          form.reset();
+        } else {
+          alert("Error sending message. Please try again.");
+        }
+      } catch (error) {
+        alert("Network error. Please try again later.");
+      } finally {
+        btn.innerText = "Send Message";
+        btn.disabled = false;
+      }
     });
   </script>
 </body>
